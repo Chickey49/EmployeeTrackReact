@@ -1,23 +1,21 @@
 import {React, useState,} from 'react'
-import GetEmpList from './API';
+import API from './API';
 
-export default async function EmpList() {
-    var { list, setListState } = useState([]);
-    setListState(await GetEmpList());
-    function map(list) {
-        setListState(list.map(item => (
-            <li key={item.id}>
-                <div>{item.id}</div>
-                <div>{item.firstname}</div>
-                <div>{item.lastname}</div>
-                <div>{item.year}</div>
-            </li>
-        )))
-    }
-    console.log(list)
+export default async function BuildEmpList() {
+    var list = await API.GetEmp();
+    const employee = Object.values(list);
+    console.log(employee.data.results)
+    console.log(employee.data.results[0].name.first)
     return (
         <div>
-            <EmpList/>
+            <row>
+                <col>
+                {employee.data.results[0].name.first}
+                </col>
+                <col>
+                {employee.data.results[0].name.last}
+                </col>
+            </row>
         </div>
     )
 }
