@@ -2,8 +2,9 @@ import {React, useState,} from 'react'
 import GetEmpList from './API';
 
 export default async function EmpList() {
-    var { list, setListState } = useState(await GetEmpList());
-    ({ list }) => {
+    var { list, setListState } = useState([]);
+    setListState(await GetEmpList());
+    function map(list) {
         setListState(list.map(item => (
             <li key={item.id}>
                 <div>{item.id}</div>
