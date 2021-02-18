@@ -9,9 +9,7 @@ const jumboStyles ={
 export default function jumbotron() {
     return (
         <Jumbotron style={{ jumboStyles }}>
-            <h1>Employee Directory</h1>
+            <h1 className={'d-flex justify-content-center'}>Employee Directory</h1>
         </Jumbotron>
-
-
     )
 }
