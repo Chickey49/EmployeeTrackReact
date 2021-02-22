@@ -30,25 +30,9 @@ export default function BuildEmpList() {
 
     // sort whatever rawEmployees list contains.
     // not what filtered employees contains.
-    function handleSort(e) {
-        console.log("filtered count" + filteredEmployees.length);
-        console.log("first item a " + filteredEmployees );
-        filteredEmployees.sort(function(a, b) {
-            var nameA = a.name.last.toUpperCase(); // ignore upper and lowercase
-            var nameB = b.name.last.toUpperCase(); // ignore upper and lowercase
-            if (nameA < nameB) {
-                return -1;
-            }
-            if (nameA > nameB) {
-                return 1;
-            }
-            
-            // names must be equal
-            return 0;
-            });
-            
-        console.log("first item b " + filteredEmployees );
-        setFilteredEmployees(filteredEmployees);
+    function handleSort() {
+        const arr = filteredEmployees.sort((a, b) => a.name.last.localeCompare(b.name.last, {ignorePunctuation: true}));
+        setFilteredEmployees(arr);
     }
 
     // items.sort(function(a, b) {
