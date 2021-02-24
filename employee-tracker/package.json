@@ -14,7 +14,10 @@
     "react-scripts": "4.0.2",
     "web-vitals": "^1.1.0"
   },
+  "homepage": "https://chickey49.github.io/reactemployeetracker/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
